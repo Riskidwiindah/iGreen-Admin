@@ -2,12 +2,11 @@ import { useEffect, useState } from 'react'
 import Sidebar from '../components/Sidebar'
 import '../styles/ManageStyle.css'
 import {useDispatch, useSelector} from 'react-redux'
-import { deleteData, getData, updateData } from '../redux/action/manajemenRelawanAction'
+import { deleteData, getData, update_Data } from '../redux/action/manajemenRelawanAction'
 
 function ManageVolunteer () {
     const [dataRelawan, setDataRelawan] = useState("")
     const [statusActive, setStatusActive] = useState("")
-    const [idData, setIdData] = useState("")
 
     const dispatch = useDispatch()
     const {relawanPendaftar, isLoading} = useSelector((state) => state.dataRelawan)
@@ -22,7 +21,7 @@ function ManageVolunteer () {
     }
 
     const handleSaveEdit = (id) => {
-        dispatch(updateData(id, statusActive))
+        dispatch(update_Data(id, statusActive))
         alert("data berhasil di update")
     }
     

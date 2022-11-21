@@ -27,12 +27,12 @@ function hapus(data){
     }
 }
 
-// function updateData(data) {
-//     return {
-//         type: UPDATE_TODO,
-//         payload: data
-//     }
-// }
+function updateData(data) {
+    return {
+        type: UPDATE_DATA,
+        payload: data
+    }
+}
 
 //========================================================================================================================================
 export const getData = () => {
@@ -50,11 +50,13 @@ export const deleteData = (id) =>{
         dispatch(fetchStart())
 
         const result = await axios.delete(`https://634b803dd90b984a1e3ac3f4.mockapi.io/api/fe9/apiPenyimpananDataPendaftaran/${id}`)
-        dispatch(hapus(result.data))
+        // dispatch(hapus(result.data))
+        dispatch(fetchStart)
+        console.log(result.data);
     }
 }
 
-export const updateData = (id) => {
+export const update_Data = (id) => {
     console.log(id);
     return async (dispatch) => {
         dispatch(fetchStart())
@@ -62,7 +64,7 @@ export const updateData = (id) => {
         const result = await axios.put(`https://634b803dd90b984a1e3ac3f4.mockapi.io/api/fe9/apiPenyimpananDataPendaftaran/${id}`,
         {status: "accepted"})
 
-        // dispatch(succesGetData(result.data))
+        // dispatch(updateData(result.data))
         console.log(result.data);
         dispatch(fetchStart)
     }
