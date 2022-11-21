@@ -50,23 +50,28 @@ function ManageVolunteer () {
                         <div className="table-responsive">
                             <table id="data-table" className="table table-striped table-hover">
                                 <thead>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">ID Event</th>
-                                    <th scope="col">Name Event</th>
-                                    <th scope="col">Link Document</th>
-                                    <th scope="col">No. Handphone</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Reason</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Action</th>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">ID Event</th>
+                                        <th scope="col">Name Event</th>
+                                        <th scope="col">Link Document</th>
+                                        <th scope="col">No. Handphone</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Reason</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>  
+                                    </tr>
+                                    
                                 </thead>
                                 <tbody className="row-data">
                                     {isLoading ?(
-                                            <span>Loading...</span>
+                                            <tr>
+                                                <td>Loading ...</td>
+                                            </tr>
                                         ) : (
-                                            relawanPendaftar.map((item) => 
-                                                <tr key={item.id}>
+                                            relawanPendaftar.map((item, index) => 
+                                                <tr key={index}>
                                                     <th>{item.id}</th>
                                                     <td>{item.nama}</td>
                                                     <td>{item.id_event}</td>
